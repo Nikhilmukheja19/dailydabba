@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/svgviewer-png-output.png";
 
 function Navbar() {
   const location = useLocation(); // to detect current path
@@ -27,17 +28,9 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-20 bg-white/80 backdrop-blur-lg">
-      <div className="flex items-center p-4 justify-between">
-        <Link
-          to="/menu"
-          className="rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white"
-        >
-          Menu
-        </Link>
+      <div className="flex items-center px-4 py-2 justify-between">
         <Link to="/">
-          <h2 className="text-zinc-900 text-xl font-bold leading-tight tracking-tight">
-            Tiffin Express
-          </h2>
+          <img src={logo} alt="DailyDabba Logo"  className="h-15 w-60 "/>
         </Link>
         <button className="rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white">
           Login
@@ -49,7 +42,7 @@ function Navbar() {
             <Link
               key={index}
               to={item.href}
-              className={`flex flex-col items-center justify-center border-b-2 px-4 py-3 text-sm font-medium ${
+              className={`flex flex-col items-center justify-center border-b-2 px-4 py-3  text-sm font-medium ${
                 activeItem === item.name
                   ? "border-orange-500 text-orange-500 font-bold"
                   : "border-transparent text-zinc-500"
