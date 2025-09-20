@@ -4,12 +4,14 @@ import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
 import About from "./Components/About";
 import Login from "./Components/Login";
+import Profile from "./Components/profile";
 
 function App() {
   const location = useLocation();
 
   // Don't show Navbar on login route
-  const hideNavbar = location.pathname === "/login";
+  const hideNavbar =
+    location.pathname === "/login"; /*|| location.pathname === "/profile"*/
 
   return (
     <div>
@@ -19,6 +21,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
   );

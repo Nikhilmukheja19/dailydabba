@@ -22,8 +22,9 @@ function Navbar() {
     { name: "Menu", href: "/menu" },
     { name: "About", href: "/about" },
     {
-      name: "Contact",
-      href: "https://wa.me/917717387848?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20services",
+      name: "Profile",
+      href: "/profile",
+      // href: "https://wa.me/917717387848?text=Hello%2C%20I%20want%20to%20know%20more%20about%20your%20services",
     },
   ];
 
@@ -38,6 +39,12 @@ function Navbar() {
           onClick={() => navigate("/login")}
         >
           Login
+        </button>
+        <button
+          className="rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white"
+          onClick={() => navigate("/profile")}
+        >
+          Profile
         </button>
       </div>
       <div className="border-b border-zinc-200">
