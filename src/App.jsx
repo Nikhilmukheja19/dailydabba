@@ -4,7 +4,7 @@ import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
 import About from "./Components/About";
 import Login from "./Components/Login";
-import Profile from "./Components/profile";
+import Profile from "./Components/Profile";
 
 function App() {
   const location = useLocation();
