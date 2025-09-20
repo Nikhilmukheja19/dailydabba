@@ -1,17 +1,24 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Menu from "./Components/Menu";
 import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
 import About from "./Components/About";
+import Login from "./Components/Login";
 
 function App() {
+  const location = useLocation();
+
+  // Don't show Navbar on login route
+  const hideNavbar = location.pathname === "/login";
+
   return (
     <div>
-      <Navbar />
+      {!hideNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );

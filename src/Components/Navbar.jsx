@@ -1,10 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/svgviewer-png-output.png";
 
 function Navbar() {
   const location = useLocation(); // to detect current path
+  const navigate = useNavigate();
   const [activeItem, setActiveItem] = useState("Home");
 
   // Update active item when location changes
@@ -30,9 +31,12 @@ function Navbar() {
     <header className="sticky top-0 z-20 bg-white/80 backdrop-blur-lg">
       <div className="flex items-center px-4 py-2 justify-between">
         <Link to="/">
-          <img src={logo} alt="DailyDabba Logo"  className="h-15 w-60 "/>
+          <img src={logo} alt="DailyDabba Logo" className="h-15 w-60 " />
         </Link>
-        <button className="rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white">
+        <button
+          className="rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white"
+          onClick={() => navigate("/login")}
+        >
           Login
         </button>
       </div>
