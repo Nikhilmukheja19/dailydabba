@@ -45,6 +45,7 @@ export default function Login() {
         } else {
           localStorage.removeItem("token");
         }
+      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         localStorage.removeItem("token");
       } finally {
