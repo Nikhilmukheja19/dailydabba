@@ -4,10 +4,45 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({ name: "", email: "", password: "" });
   const navigate = useNavigate();
 
   const handleClose = () => {
     navigate(-1);
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const url = isLogin
+      ? "https://dailydabbabackend-3.onrender.com/api/login"
+      : "https://dailydabbabackend-3.onrender.com/api/signup";
+
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+        }
+        navigate("/home"); // Redirect
+      } else {
+        alert(data.message || "Something went wrong");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Server error");
+    }
   };
 
   return (
@@ -23,20 +58,7 @@ export default function Login() {
           onClick={handleClose}
           className="absolute top-4 right-4 text-zinc-500 hover:text-zinc-700"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          ✕
         </button>
 
         {/* Heading */}
@@ -51,14 +73,15 @@ export default function Login() {
         </motion.h2>
 
         {/* Form */}
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           {!isLogin && (
             <div>
-              <label className="block text-sm text-zinc-600 mb-1">
-                Full Name
-              </label>
+              <label className="block text-sm text-zinc-600 mb-1">Full Name</label>
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="John Doe"
                 className="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
               />
@@ -69,6 +92,9 @@ export default function Login() {
             <label className="block text-sm text-zinc-600 mb-1">Email</label>
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               placeholder="you@example.com"
               className="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             />
@@ -78,6 +104,9 @@ export default function Login() {
             <label className="block text-sm text-zinc-600 mb-1">Password</label>
             <input
               type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="••••••••"
               className="w-full px-4 py-2 border border-zinc-300 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             />
@@ -85,6 +114,7 @@ export default function Login() {
 
           <motion.button
             whileTap={{ scale: 0.95 }}
+            type="submit"
             className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded-lg font-semibold shadow-md transition"
           >
             {isLogin ? "Login" : "Sign Up"}
