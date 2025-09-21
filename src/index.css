@@ -1,5 +1,10 @@
 @import "tailwindcss";
-a.flex.items-center.gap-3.px-4.py-3.text-white.bg-orange-500.font-semibold.rounded-xl {
-  width: max-content;
-  justify-self: end;
+@media (max-width: 768px) {
+  a.flex.items-center.gap-3.px-4.py-3.text-white.bg-orange-500.font-semibold.rounded-xl {
+    width: max-content;
+    justify-self: end;
+  }
+  .flex.justify-end.mb-4 {
+    margin-right: 10px;
+  }
 }

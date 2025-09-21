@@ -4,7 +4,8 @@ import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
 import About from "./Components/About";
 import Login from "./Components/Login";
-import Profile from "./Components/Profile";
+import AddressForm from "./Components/AddressFrom";
+import Profile from "./Components/profile";
 
 function App() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/addressform" element={<AddressForm />} />
       </Routes>
     </div>
   );
