@@ -12,7 +12,9 @@ function App() {
 
   // Don't show Navbar on login route
   const hideNavbar =
-    location.pathname === "/login"; /*|| location.pathname === "/profile"*/
+    location.pathname === "/login" ||
+    location.pathname === "/addressform"; /* ||*/
+  // location.pathname === "/profile";
 
   return (
     <div>
