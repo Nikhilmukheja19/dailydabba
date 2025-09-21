@@ -2,7 +2,7 @@
 
 export default function Profile() {
   return (
-    <div className="min-h-screen bg-white-600 p-6">
+    <div className="min-h-screen bg-white-600 p-2">
       <div className="container mx-auto grid grid-cols-12 gap-8">
         {/* Sidebar */}
         <aside className="col-span-12 lg:col-span-3">
