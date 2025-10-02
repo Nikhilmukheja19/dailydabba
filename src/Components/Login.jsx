@@ -76,6 +76,10 @@ export default function Login() {
       return;
     }
 
+    // const url = isLogin
+    //   ? "https://dailydabbabackend-3.onrender.com/auth/login"
+    //   : "https://dailydabbabackend-3.onrender.com/auth/register";
+
     const url = isLogin
       ? "https://dailydabbabackend-3.onrender.com/auth/login"
       : "https://dailydabbabackend-3.onrender.com/auth/register";
@@ -86,7 +90,9 @@ export default function Login() {
       if (isLogin) {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
-          localStorage.setItem("userName", res.data.user?.name || "User"); // ✅ Save name
+          localStorage.setItem("userName", res.data.user?.name || "User");
+          localStorage.setItem("id", res.data.user?.id || "id");
+          localStorage.setItem("email", res.data.user?.email || "email");
           navigate("/");
         }
       } else {

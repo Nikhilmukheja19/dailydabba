@@ -28,10 +28,17 @@ export default function AddressForm() {
     setMessage("");
     setLoading(true);
     try {
+      const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:5000/api/address",
-        formData
+        "https://dailydabbabackend-3.onrender.com/address/addadress",
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
+
       setMessage(res.data.message);
       setFormData({
         name: "",
@@ -41,9 +48,11 @@ export default function AddressForm() {
         state: "",
         zip: "",
       });
+      console.log(res);
     } catch (err) {
       setMessage(err.response?.data?.message || "Server error!");
     } finally {
+      handleClose();
       setLoading(false);
     }
   };

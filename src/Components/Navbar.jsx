@@ -11,25 +11,28 @@ function Navbar() {
   // auth state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState(""); // store logged-in user id
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     const storedName = localStorage.getItem("userName");
+    const storedId = localStorage.getItem("id"); // assuming you saved user id at login
 
     if (token && storedName) {
       setIsLoggedIn(true);
       setUserName(storedName);
+      setUserId(storedId);
     } else {
       setIsLoggedIn(false);
       setUserName("");
+      setUserId("");
     }
-  }, [location]); // recheck when route changes
-
+  }, [location]);
   const menuItems = [
     { name: "Home", href: "/" },
     { name: "Menu", href: "/menu" },
     { name: "About", href: "/about" },
-    { name: "Profile", href: "/profile" },
+    { name: "Profile", href: `/profile/${userId}` },
   ];
 
   // highlight active item
@@ -59,7 +62,7 @@ function Navbar() {
         ) : (
           <button
             className="flex items-center gap-2 rounded-full bg-orange-500 text-white font-bold px-4 py-2"
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate(`/profile/${userId}`)}
           >
             <span className="rounded-full bg-white/20 w-8 h-8 flex items-center justify-center">
               {userName.charAt(0).toUpperCase()}

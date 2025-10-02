@@ -5,7 +5,7 @@ import Navbar from "./Components/Navbar";
 import About from "./Components/About";
 import Login from "./Components/Login";
 import AddressForm from "./Components/AddressFrom";
-import Profile from "./Components/Profile";
+import Profile from "./Components/profile";
 
 function App() {
   const location = useLocation();
@@ -24,7 +24,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<Profile />} />
         <Route path="/addressform" element={<AddressForm />} />
       </Routes>
     </div>
