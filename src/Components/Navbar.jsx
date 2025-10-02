@@ -4,13 +4,26 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/svgviewer-png-output.png";
 
 function Navbar() {
-  const location = useLocation(); // to detect current path
+  const location = useLocation();
   const navigate = useNavigate();
   const [activeItem, setActiveItem] = useState("Home");
 
-  // Simulated login state (replace with your auth logic)
+  // auth state
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("Nikhil"); // Example username
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const storedName = localStorage.getItem("userName");
+
+    if (token && storedName) {
+      setIsLoggedIn(true);
+      setUserName(storedName);
+    } else {
+      setIsLoggedIn(false);
+      setUserName("");
+    }
+  }, [location]); // recheck when route changes
 
   const menuItems = [
     { name: "Home", href: "/" },
@@ -19,7 +32,7 @@ function Navbar() {
     { name: "Profile", href: "/profile" },
   ];
 
-  // Update active item when location changes
+  // highlight active item
   useEffect(() => {
     const currentPath = location.pathname;
     const matchedItem = menuItems.find((item) => item.href === currentPath);
@@ -35,7 +48,7 @@ function Navbar() {
           <img src={logo} alt="DailyDabba Logo" className="h-15 w-60" />
         </Link>
 
-        {/* Conditional rendering */}
+        {/* ✅ Conditional rendering */}
         {!isLoggedIn ? (
           <button
             className="rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white"
@@ -45,11 +58,13 @@ function Navbar() {
           </button>
         ) : (
           <button
-            className="flex items-center justify-center rounded-full bg-orange-500 text-white font-bold w-10 h-10"
+            className="flex items-center gap-2 rounded-full bg-orange-500 text-white font-bold px-4 py-2"
             onClick={() => navigate("/profile")}
           >
-            {/* Use first letter of username as avatar */}
-            {userName.charAt(0).toUpperCase()}
+            <span className="rounded-full bg-white/20 w-8 h-8 flex items-center justify-center">
+              {userName.charAt(0).toUpperCase()}
+            </span>
+            {userName.split(" ")[0]} {/* first name */}
           </button>
         )}
       </div>

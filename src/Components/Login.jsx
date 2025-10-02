@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -12,8 +13,8 @@ export default function Login() {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const [loading, setLoading] = useState(false); // loader for submit
-  const [checkingAuth, setCheckingAuth] = useState(true); // loader for token check
+  const [loading, setLoading] = useState(false);
+  const [checkingAuth, setCheckingAuth] = useState(true);
   const navigate = useNavigate();
 
   const handleClose = () => {
@@ -44,10 +45,11 @@ export default function Login() {
           navigate("/"); // already logged in
         } else {
           localStorage.removeItem("token");
+          localStorage.removeItem("userName");
         }
-      // eslint-disable-next-line no-unused-vars
       } catch (err) {
         localStorage.removeItem("token");
+        localStorage.removeItem("userName");
       } finally {
         setCheckingAuth(false);
       }
@@ -84,6 +86,7 @@ export default function Login() {
       if (isLogin) {
         if (res.data.token) {
           localStorage.setItem("token", res.data.token);
+          localStorage.setItem("userName", res.data.user?.name || "User"); // ✅ Save name
           navigate("/");
         }
       } else {
@@ -103,7 +106,6 @@ export default function Login() {
   };
 
   if (checkingAuth) {
-    // full screen loader while checking token
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 to-green-50">
         <svg
