@@ -6,7 +6,7 @@ const reviews = [
     date: "2 weeks ago",
     stars: 5,
     comment:
-      "I love the tiffins from Tiffin Express! The food is always fresh and delicious, and the delivery is on time. Highly recommended!",
+      "I love the Thalis from Thali Express! The food is always fresh and delicious, and the delivery is on time. Highly recommended!",
     likes: 5,
     dislikes: 1,
     image:
@@ -17,7 +17,7 @@ const reviews = [
     date: "1 month ago",
     stars: 4,
     comment:
-      "Tiffin Express delivers great meals! The portion size is perfect, and the taste is amazing. I just wish the delivery was slightly faster.",
+      "Thali Express delivers great meals! The portion size is perfect, and the taste is amazing. I just wish the delivery was slightly faster.",
     likes: 3,
     dislikes: 0,
     image: "https://randomuser.me/api/portraits/men/32.jpg",
@@ -27,7 +27,7 @@ const reviews = [
     date: "3 weeks ago",
     stars: 5,
     comment:
-      "Absolutely love the service! The variety of tiffins is great, and everything tastes fresh. Customer support is also very responsive.",
+      "Absolutely love the service! The variety of Thalis is great, and everything tastes fresh. Customer support is also very responsive.",
     likes: 6,
     dislikes: 0,
     image: "https://randomuser.me/api/portraits/women/44.jpg",

@@ -12,14 +12,14 @@ const About = () => {
                 Bringing the Taste of Home, to Your Doorstep
               </h1>
               <p className="mt-6 text-lg lg:text-xl text-zinc-600 max-w-2xl mx-auto lg:mx-0">
-                Discover the story behind Tiffin Express, where passion for
+                Discover the story behind Thali Express, where passion for
                 authentic flavors and commitment to quality come together to
                 deliver nutritious and delicious home-style meals.
               </p>
             </div>
             <div className="mt-8 lg:mt-0">
               <img
-                alt="Delicious tiffin meal"
+                alt="Delicious Thali meal"
                 className="rounded-lg shadow-lg"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb7wVjDtKOh5lsKOdzYFwscAxN3-PUNu51hXfNZkjj_bbXmo0rmubHQyhtTfLg4CNUByskgM0a1M89ZIMO_n7ivFZRDwEtq-PCPsvkQ8eYgYXG4dS20uwyady2PhSqQaxc7K2qXG6gPru2CREHpCUMd93mdXXF0x6CICXyvAcUb3ICjXwkY6QWI9CthWXJHNDawzF2OMnkPhPCf-MGiROLvAVTiEG7F5fPPxjnYO_bYCRCJ9v5NAYuL2Ir89dCdVYyvDTnhCjHsA"
               />
@@ -35,12 +35,12 @@ const About = () => {
             Our Story
           </h2>
           <p className="text-zinc-600 mt-6 text-lg leading-relaxed">
-            At Tiffin Express, our journey began in 2018 with a simple desire:
+            At Thali Express, our journey began in 2018 with a simple desire:
             to bring the authentic taste of home-cooked meals to busy
             professionals and students. Founded by a group of food enthusiasts,
             we recognized the need for a reliable and healthy alternative to
             fast food. Our mission is to provide nutritious, delicious, and
-            affordable tiffin services that cater to diverse dietary
+            affordable Thali services that cater to diverse dietary
             preferences, making wholesome eating convenient for everyone.
           </p>
         </div>
@@ -74,7 +74,7 @@ const About = () => {
               <MdSentimentSatisfied className="text-primary-600 w-12 h-12" />
             }
             title="Customer Happiness"
-            description="We value customer satisfaction above all and strive to exceed expectations with every tiffin we deliver."
+            description="We value customer satisfaction above all and strive to exceed expectations with every Thali we deliver."
           />
         </div>
       </section>
@@ -85,7 +85,7 @@ const About = () => {
           Meet the Team
         </h2>
         <p className="text-lg text-zinc-600 text-center mt-4 max-w-3xl mx-auto">
-          The passionate individuals dedicated to bringing you the best tiffin
+          The passionate individuals dedicated to bringing you the best Thali
           experience.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-center gap-x-8 gap-y-12 mt-12 max-w-4xl mx-auto">

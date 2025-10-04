@@ -5,13 +5,13 @@ const features = [
     icon: <MdRamenDining className="w-12 h-12 text-orange-500" />,
     title: "Authentic Homemade Taste",
     description:
-      "Our tiffins are prepared with fresh ingredients and traditional recipes, ensuring a taste that reminds you of home.",
+      "Our Thalis are prepared with fresh ingredients and traditional recipes, ensuring a taste that reminds you of home.",
   },
   {
     icon: <MdLocalShipping className="w-12 h-12 text-orange-500" />,
     title: "Fast and Reliable Delivery",
     description:
-      "We guarantee timely delivery of your tiffin, so you never have to worry about missing a meal.",
+      "We guarantee timely delivery of your Thali, so you never have to worry about missing a meal.",
   },
   {
     icon: <MdSchedule className="w-12 h-12 text-orange-500" />,
@@ -26,7 +26,7 @@ function Features() {
     <section className="py-16 px-4 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
       <p className="text-zinc-600 mb-12 max-w-3xl mx-auto text-lg md:text-xl">
-        We are committed to providing you with the best tiffin service
+        We are committed to providing you with the best Thali service
         experience.
       </p>
 
